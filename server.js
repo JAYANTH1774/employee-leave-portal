@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = "mongodb+srv://2303a51774_db_user:U3he6vTdg1I3T6J7@jayanth.h1xxmxd.mongodb.net/elass_db?retryWrites=true&w=majority";
 const JWT_SECRET = process.env.JWT_SECRET || 'secret_jwt_key_2026';
 
 // Schemas & Models
