@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elass-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: elass-app
+  template:
+    metadata:
+      labels:
+        app: elass-app
+    spec:
+      containers:
+      - name: elass-container
+        image: employee-leave-portal:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elass-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: elass-app
+  ports:
+  - port: 80
+    targetPort: 5000
